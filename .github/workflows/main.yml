@@ -20,10 +20,10 @@ jobs:
         with:
           node-version: '20' # Zowe CLI roda bem no Node 20 
 
-     # - name: Install Zowe CLI
-     #   run: |
-     #     npm install -g @zowe/cli@latest
-     #     zowe --version # Apenas para confirmar a instalação no log      
+      - name: Install Zowe CLI
+        run: |
+          npm install -g @zowe/cli@latest
+          zowe --version # Apenas para confirmar a instalação no log      
           
       - name: Setup Mainframe Environment and Upload COBOL Check
         env:
