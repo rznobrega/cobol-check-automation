@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Zowe CLI roda bem no Node 20
+          node-version: '20' # Zowe CLI roda bem no Node 20 
 
       - name: Install Zowe CLI
         run: |
