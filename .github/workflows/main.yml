@@ -24,6 +24,9 @@ jobs:
         run: |
           npm install -g @zowe/cli@latest
           zowe --version # Apenas para confirmar a instalação no log      
+      - name: Create Zowe Profile
+        run: |
+          zowe profiles create zosmf-profile ibmxplore --host ${{ secrets.ZOWE_HOST }} --user ${{ secrets.ZOWE_USER }} --pass ${{ secrets.ZOWE_PASSWORD }} --reject-unauthorized true --overwrite          
           
       - name: Setup Mainframe Environment and Upload COBOL Check
         env:
