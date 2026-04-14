@@ -26,7 +26,7 @@ jobs:
           zowe --version # Apenas para confirmar a instalação no log      
       - name: Create Zowe Profile
         run: |
-          zowe profiles create zosmf ibmxplore --host ${{ secrets.ZOWE_HOST }} --user ${{ secrets.ZOWE_USER }} --pass ${{ secrets.ZOWE_PASSWORD }} --reject-unauthorized true --overwrite          
+          zowe config init --user ${{ secrets.ZOWE_USER }} --pass ${{ secrets.ZOWE_PASSWORD }} --host ${{ secrets.ZOWE_HOST }} --port 10443
           
       - name: Setup Mainframe Environment and Upload COBOL Check
         env:
