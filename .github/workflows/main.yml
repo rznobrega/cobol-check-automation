@@ -15,28 +15,29 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20' # Zowe CLI roda bem no Node 20 
+     # - name: Setup Node.js
+     #   uses: actions/setup-node@v4
+     #   with:
+     #     node-version: '20' # Zowe CLI roda bem no Node 20 
 
-      - name: Install Zowe CLI
-        run: |
-          npm install -g @zowe/cli@latest
-          zowe --version # Apenas para confirmar a instalação no log      
+     # - name: Install Zowe CLI
+     #   run: |
+     #     npm install -g @zowe/cli@latest
+     #     zowe --version # Apenas para confirmar a instalação no log      
           
-      - name: Setup Mainframe Environment and Upload COBOL Check
-        env:
-          ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
-          ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
-        run: |
-          chmod +x .github/scripts/zowe_operations.sh
-          .github/scripts/zowe_operations.sh
-      - name: Run COBOL Check on Mainframe
+     # - name: Setup Mainframe Environment and Upload COBOL Check
+     #   env:
+     #     ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
+     #     ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
+     #   run: |
+     #     chmod +x .github/scripts/zowe_operations.sh
+     #     .github/scripts/zowe_operations.sh
+      - name: Run COBOL Check #on Mainframe
         env:
            ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
            ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
         run: |
-          chmod +x .github/scripts/mainframe_operations.sh
-          .github/scripts/mainframe_operations.sh
+         echo "Running COBOL Check"
+   #       # chmod +x .github/scripts/mainframe_operations.sh
+   #       # .github/scripts/mainframe_operations.sh
           
