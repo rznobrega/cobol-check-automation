@@ -24,17 +24,18 @@ jobs:
         run: |
           npm install -g @zowe/cli@latest
           zowe --version # Apenas para confirmar a instalação no log      
-      - name: Create Zowe Profile
-        run: |
-          zowe config init --user ${{ secrets.ZOWE_USER }} --pass ${{ secrets.ZOWE_PASSWORD }} --host ${{ secrets.ZOWE_HOST }} --port 10443
-          
+      #- name: Create Zowe Profile
+      #  run: |
+      #    zowe config init --user ${{ secrets.ZOWE_USER }} --pass ${{ secrets.ZOWE_PASSWORD }} --host ${{ secrets.ZOWE_HOST }} --port 10443
+      - name: Set execution permission
+        run: chmod +x .github/scripts/zowe_operations.sh
+      
       - name: Setup Mainframe Environment and Upload COBOL Check
         env:
           ZOWE_HOST: ${{ secrets.ZOWE_HOST }}
           ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
           ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
         run: |
-          chmod +x .github/scripts/zowe_operations.sh
           .github/scripts/zowe_operations.sh
      # - name: Run COBOL Check #on Mainframe
      #   env:
