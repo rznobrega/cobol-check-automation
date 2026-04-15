@@ -3,7 +3,7 @@
 # zowe_operations.sh 
 
 # Convert username to lowercase
-LOWERCASE_USERNAME=$(echo "ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
+LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
 echo "-------------------Usename:--------------"
 echo $LOWERCASE_USERNAME
 # Check if directory exists, create it if it doesn't
